@@ -1,6 +1,10 @@
-#define BLYNK_TEMPLATE_ID "TMPL21XKd0Kcs"
-#define BLYNK_TEMPLATE_NAME "Smart Home"
-#define BLYNK_AUTH_TOKEN "C4-etB96EP93Mc-06wbgzYEn6KuW2Jmy"
+// Copy them from Blynk platform
+#define BLYNK_TEMPLATE_ID ""
+#define BLYNK_TEMPLATE_NAME ""
+#define BLYNK_AUTH_TOKEN ""
+
+#define WIFI_SSID  "test"         // change it with your WiFi ssid
+#define WIFI_PASSWORD "12345678"  // change it with your WiFi password
 
 #include <WiFiNINA.h>
 #include <BlynkSimpleWiFiNINA.h>
@@ -25,7 +29,7 @@ void setup(){
   Serial.println("Welcome Boss 🫡");
 
   t.setInterval(2000L, sendData);                           // Config timer
-  Blynk.begin(BLYNK_AUTH_TOKEN, "HUAWEI Y7a", "12345678");  // Config WiFi & Connect with Blynk
+  Blynk.begin(BLYNK_AUTH_TOKEN, WIFI_SSID, WIFI_PASSWORD);  // Config WiFi & Connect with Blynk
   Serial.println("Blynk isConnected!");
 
   dht.begin();                                              // Config the DHT11 sensor
@@ -71,6 +75,7 @@ void sendData(){
 
 }
 
+// for mobile application on Blynk
 BLYNK_WRITE(V7){
   int red = param[0].asInt();
   int green = param[1].asInt();

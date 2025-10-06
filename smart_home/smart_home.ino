@@ -40,6 +40,7 @@ void loop(){
   t.run();
 }
 
+// read value from Blynk "Red led"
 BLYNK_WRITE(V4){
   int red = param.asInt();
   Serial.print("Red: ");
@@ -48,6 +49,7 @@ BLYNK_WRITE(V4){
   WiFiDrv::analogWrite(RED_PIN, red);
 }
 
+// read value from Blynk "Green led"
 BLYNK_WRITE(V5){
   int green = param.asInt();
   Serial.print("Green: ");
@@ -56,6 +58,7 @@ BLYNK_WRITE(V5){
   WiFiDrv::analogWrite(GREEN_PIN, green);
 }
 
+// read value from Blynk "Blue led"
 BLYNK_WRITE(V6){
   int blue = param.asInt();
   Serial.print("Blue: ");
@@ -64,6 +67,7 @@ BLYNK_WRITE(V6){
   WiFiDrv::analogWrite(BLUE_PIN, blue);
 }
 
+// Sending data of DHT11 sensor to Blynk
 void sendData(){
   Serial.println("Sending Data to Dashboard.");
   
